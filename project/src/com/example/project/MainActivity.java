@@ -24,7 +24,7 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
     private ImageSwitcher mImageSwitcher;
     private int[] images;
     private int flag = 1;
-    private int currentPosition;
+    private int currentPosition=0;
     private float downX;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 		mImageSwitcher = (ImageSwitcher)findViewById(R.id.imageSwitcher1);
 		mImageSwitcher.setFactory(this);
 		mImageSwitcher.setOnTouchListener(this);
-		currentPosition = getIntent().getIntExtra("positon",0);
+		//currentPosition = getIntent().getIntExtra("positon",0);
 		mImageSwitcher.setImageResource(images[currentPosition]);	
 		final Button my = (Button)findViewById(R.id.my);
 		my.setOnClickListener(new listen_my());
@@ -79,7 +79,11 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
     				  mImageSwitcher.setImageResource(images[currentPosition]);
     			  }
     			  else{
-    				  Toast.makeText(getApplication(), "the first picture", Toast.LENGTH_SHORT).show();
+    				  currentPosition = images.length-1;
+    				  mImageSwitcher.setInAnimation(AnimationUtils.loadAnimation(getApplication(), R.anim.left_in));
+    				  mImageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(getApplication(), R.anim.right_out));
+    				  mImageSwitcher.setImageResource(images[currentPosition]);
+    				  //Toast.makeText(getApplication(), "the first picture", Toast.LENGTH_SHORT).show();
     			  }
     		  }
     		  if(lastX < downX){
@@ -90,7 +94,11 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
     				  mImageSwitcher.setImageResource(images[currentPosition]);
     			  }
     			  else{
-    				  Toast.makeText(getApplication(), "the last picture",Toast.LENGTH_SHORT).show();
+    				  //Toast.makeText(getApplication(), "the last picture",Toast.LENGTH_SHORT).show();
+    				  currentPosition = 0;
+    				  mImageSwitcher.setInAnimation(AnimationUtils.loadAnimation(getApplication(), R.anim.right_in));
+    				  mImageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(getApplication(), R.anim.left_out));
+    				  mImageSwitcher.setImageResource(images[currentPosition]);
     			  }
     		  }
     	  }
