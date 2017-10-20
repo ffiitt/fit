@@ -105,6 +105,7 @@ public class test extends Activity{
 	}
 	public void sendjson(){
 		String url = "http://10.0.2.2:8080/web/FirstServlet";
+	    //String str= "";
 		HttpPost post = new HttpPost(url);
 		final EditText user = (EditText)findViewById(R.id.username);
 		final EditText pass = (EditText)findViewById(R.id.password);
