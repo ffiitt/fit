@@ -12,8 +12,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.view.Window;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -23,27 +25,70 @@ import org.apache.http.HttpResponse;
 public class MainActivity extends Activity implements ViewFactory,OnTouchListener{
     private ImageSwitcher mImageSwitcher;
     private int[] images;
-    private int flag = 1;
     private int currentPosition=0;
     private float downX;
+    private boolean login = true;
+    private String username = "";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
 		images = new int[]{R.drawable.bai1,R.drawable.bjt,R.drawable.bai3};
 		mImageSwitcher = (ImageSwitcher)findViewById(R.id.imageSwitcher1);
 		mImageSwitcher.setFactory(this);
 		mImageSwitcher.setOnTouchListener(this);
 		//currentPosition = getIntent().getIntExtra("positon",0);
-		mImageSwitcher.setImageResource(images[currentPosition]);	
-		final Button my = (Button)findViewById(R.id.my);
+		mImageSwitcher.setImageResource(images[currentPosition]);
+		Intent intent = getIntent();
+		Bundle data = intent.getExtras();
+		System.out.print(data);
+		if(data == null){
+			
+		}
+		else{
+			username = data.getString("user");
+			if(username == null){
+				login = true;
+			}
+			else{
+				login = false;
+			}
+		}
+		final ImageButton my = (ImageButton)findViewById(R.id.myhome);
 		my.setOnClickListener(new listen_my());
+		final Button fit = (Button)findViewById(R.id.fit);
+		fit.setOnClickListener(new listen_fit());
+		final Button back = (Button)findViewById(R.id.back);
+		back.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				System.out.println("yinzhibo");
+			}
+		});
+	}
+	class listen_fit implements OnClickListener{
+		@Override
+		public void onClick(View V){
+			Intent intent = new Intent(MainActivity.this,outdoor.class);
+			startActivity(intent);
+			
+		}
 	}
 	class listen_my implements OnClickListener{
 		@Override
 		public void onClick(View v){
-			if(flag == 1){
+			if(login == true){
 				Intent intent = new Intent(MainActivity.this,test.class);//test∆‰ µ «login
+				startActivity(intent);
+				finish();
+			}else{
+				Intent intent = new Intent(MainActivity.this,my.class);
+				Bundle data = new Bundle();
+				data.putString("user",username);
+				intent.putExtras(data);
 				startActivity(intent);
 			}
 		}

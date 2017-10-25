@@ -30,6 +30,10 @@
             android:name=".my"
             android:label="我的主页">
         </activity>
+        <activity
+            android:name=".outdoor"
+            android:label="搜索附近体育馆">
+        </activity>
     </application>
 
 </manifest>

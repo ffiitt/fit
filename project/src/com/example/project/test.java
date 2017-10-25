@@ -44,17 +44,12 @@ public class test extends Activity{
 			@Override
 			public void handleMessage(Message msg){
 				if(msg.obj!=null){
-					Toast.makeText(getApplication(), responseMsg,Toast.LENGTH_SHORT).show();
+					if(!responseMsg.substring(0,7).equals("success")){
+						Toast.makeText(getApplication(), responseMsg,Toast.LENGTH_SHORT).show();
+					}
 				}
 			}
 		};
-		if(responseMsg.equals("success")){
-			Intent intent = new Intent(test.this,my.class);//test其实是login
-			startActivity(intent);
-			finish();
-		}else{
-			System.out.println("nonoo");
-		}
 	}
 	class login_listen implements OnClickListener{
 		@Override
@@ -89,17 +84,22 @@ public class test extends Activity{
 	}
 	class LoginThread implements Runnable{
 		public void run(){
-			System.out.println(2222);
 			boolean loginValidate = loginserver();
 			Message m = handler1.obtainMessage();
 			m.obj = responseMsg;
 			handler1.sendMessage(m);
-			if(responseMsg.equals("success")){
+			Bundle data = new Bundle();
+			System.out.println(responseMsg.substring(0,8));
+			if(responseMsg.substring(0,8).equals("successy")){
 				Intent intent = new Intent(test.this,my.class);//test其实是login
+				data.putString("user",responseMsg.substring(8));
+				intent.putExtras(data);
 				startActivity(intent);
 				finish();
-			}else{
-				System.out.println("nonoo");
+			}else if(responseMsg.substring(0,7).equals("successn")){
+//				Intent intent = new Intent(test.this,fit.class);
+//				startActivity(intent);
+//				finish();
 			}
 		}
 	}
