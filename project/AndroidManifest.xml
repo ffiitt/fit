@@ -34,6 +34,9 @@
             android:name=".outdoor"
             android:label="搜索附近体育馆">
         </activity>
+        <activity
+            android:name=".myhomepage">
+        </activity>
     </application>
 
 </manifest>

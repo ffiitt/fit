@@ -19,7 +19,7 @@
        android:ellipsize="marquee"
        android:gravity="center_horizontal"
        android:paddingTop="6dp"
-       android:text="fit"
+       android:text="F I T"
        android:textColor="#ffffffff"
        android:textSize="20dp" />
    <Button
@@ -76,7 +76,7 @@
             android:paddingRight="10dp"
             android:layout_width="fill_parent" 
             android:layout_height="43dp"
-            android:drawableRight="@drawable/right"
+            android:drawableRight="@drawable/next"
             android:background="@drawable/shapecircle" />
     </LinearLayout>
     <LinearLayout
@@ -94,7 +94,7 @@
             android:textSize="17dp"
             android:layout_width="fill_parent" 
             android:layout_height="43dp"
-            android:drawableRight="@drawable/right"
+            android:drawableRight="@drawable/next"
             android:background="@drawable/shapecircle"/>
             
     </LinearLayout>
@@ -114,7 +114,7 @@
             android:textSize="17dp"
             android:layout_width="fill_parent" 
             android:layout_height="43dp"
-            android:drawableRight="@drawable/right"
+            android:drawableRight="@drawable/next"
             android:background="@drawable/shapecircle"/> 
     </LinearLayout>
     <LinearLayout
@@ -134,7 +134,7 @@
             android:textSize="17dp"
             android:layout_width="fill_parent" 
             android:layout_height="43dp"
-            android:drawableRight="@drawable/right"
+            android:drawableRight="@drawable/next"
             android:background="@drawable/shapecircle"/> 
     </LinearLayout>
     
@@ -154,7 +154,7 @@
             android:textSize="17dp"
             android:layout_width="fill_parent" 
             android:layout_height="43dp"
-            android:drawableRight="@drawable/right"
+            android:drawableRight="@drawable/next"
             android:background="@drawable/shapecircle"/> 
     </LinearLayout>
     <LinearLayout
@@ -173,7 +173,7 @@
             android:textSize="17dp"
             android:layout_width="fill_parent" 
             android:layout_height="43dp"
-            android:drawableRight="@drawable/right"
+            android:drawableRight="@drawable/next"
             android:background="@drawable/shapecircle"/> 
     </LinearLayout>
       
@@ -193,7 +193,7 @@
             android:textSize="17dp"
             android:layout_width="fill_parent" 
             android:layout_height="43dp"
-            android:drawableRight="@drawable/right"
+            android:drawableRight="@drawable/next"
             android:background="@drawable/shapecircle"/> 
     </LinearLayout> 
     </LinearLayout>

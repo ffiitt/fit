@@ -48,7 +48,7 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 		}
 		else{
 			username = data.getString("user");
-			if(username == null){
+			if(username == null || username.equals("")){
 				login = true;
 			}
 			else{
@@ -73,7 +73,11 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 		@Override
 		public void onClick(View V){
 			Intent intent = new Intent(MainActivity.this,outdoor.class);
+			Bundle data = new Bundle();
+			data.putString("user",username);
+			intent.putExtras(data);
 			startActivity(intent);
+			finish();
 			
 		}
 	}
@@ -85,11 +89,12 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 				startActivity(intent);
 				finish();
 			}else{
-				Intent intent = new Intent(MainActivity.this,my.class);
+				Intent intent = new Intent(MainActivity.this,myhomepage.class);
 				Bundle data = new Bundle();
 				data.putString("user",username);
 				intent.putExtras(data);
 				startActivity(intent);
+				finish();
 			}
 		}
 	}

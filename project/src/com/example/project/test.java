@@ -11,21 +11,30 @@ import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
-
 import android.os.Handler;
+import android.support.v4.graphics.drawable.*;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Message;
-
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.DrawableContainer;
+import android.graphics.drawable.LayerDrawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,9 +46,27 @@ public class test extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.login);
 		final Button login_button = (Button)findViewById(R.id.login);
 		login_button.setOnClickListener(new login_listen());
+		OvalShape ovalShape = new OvalShape();
+		ShapeDrawable drawable0 = new ShapeDrawable(ovalShape);
+		drawable0.getPaint().setColor(Color.RED);
+		drawable0.getPaint().setStyle(Paint.Style.FILL);
+		drawable0.getPaint().setAntiAlias(true);
+		drawable0.getPaint().setStrokeWidth(5);
+		RoundedBitmapDrawable drawable3 = RoundedBitmapDrawableFactory.create(getResources(),BitmapFactory.decodeResource(getResources(),R.drawable.yuga));
+		drawable3.setCornerRadius(300);
+		drawable3.setAntiAlias(true);
+		Drawable[] layers = new Drawable[2];
+		layers[0] = drawable0;
+		layers[1] = drawable3;
+		LayerDrawable layerDrawable = new LayerDrawable(layers);
+		layerDrawable.setLayerInset(0, 5, 5, 5, 5);
+		layerDrawable.setLayerInset(1, 10, 10,10, 10);
+		final View view = findViewById(R.id.view);
+		view.setBackground(layerDrawable);
 		handler1 = new Handler(){
 			@Override
 			public void handleMessage(Message msg){
@@ -91,15 +118,17 @@ public class test extends Activity{
 			Bundle data = new Bundle();
 			System.out.println(responseMsg.substring(0,8));
 			if(responseMsg.substring(0,8).equals("successy")){
-				Intent intent = new Intent(test.this,my.class);//test其实是login
+				Intent intent = new Intent(test.this,myhomepage.class);//test其实是login
 				data.putString("user",responseMsg.substring(8));
 				intent.putExtras(data);
 				startActivity(intent);
 				finish();
 			}else if(responseMsg.substring(0,7).equals("successn")){
-//				Intent intent = new Intent(test.this,fit.class);
-//				startActivity(intent);
-//				finish();
+				Intent intent = new Intent(test.this,stadium.class);
+				data.putString("user", responseMsg.substring(8));
+				intent.putExtras(data);
+				startActivity(intent);
+				finish();
 			}
 		}
 	}
