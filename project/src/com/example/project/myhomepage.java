@@ -65,6 +65,7 @@ import android.widget.Toast;
 public class myhomepage extends Activity{
 	private Calendar c = null;
 	private int row = 1;
+	private String name="";
 	Handler handler1;
 	private String user = "";
 	private String temp_time="";
@@ -76,6 +77,12 @@ public class myhomepage extends Activity{
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.myhomepage);
+		Intent intent = getIntent();
+		Bundle data = intent.getExtras();
+		name = data.getString("name");
+		TextView ttext = (TextView)findViewById(R.id.ttext);
+		ttext.setText("Hello,"+name);
+		
 		//给头像描黑边 
 		//RelativeLayout r = (RelativeLayout)findViewById(R.id.real);
 		OvalShape ovalShape = new OvalShape();
@@ -157,6 +164,7 @@ public class myhomepage extends Activity{
     		Bundle data = new Bundle();
     		Intent intent = new Intent(myhomepage.this,MainActivity.class);//test其实是login
 			data.putString("user",user);
+			data.putString("name", name);
 			intent.putExtras(data);
 			startActivity(intent);
     	}

@@ -45,6 +45,7 @@
         android:background="#FFFAFA"
         ></RelativeLayout>
     <TextView
+        android:id="@+id/ttext"
         android:layout_width="130dp"
         android:layout_height="25dp"
         android:layout_marginTop="55dp"

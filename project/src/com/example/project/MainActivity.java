@@ -29,6 +29,7 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
     private float downX;
     private boolean login = true;
     private String username = "";
+    private String name = "";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -53,6 +54,7 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 			}
 			else{
 				login = false;
+				name = data.getString("name");
 			}
 		}
 		final ImageButton my = (ImageButton)findViewById(R.id.myhome);
@@ -92,6 +94,7 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 				Intent intent = new Intent(MainActivity.this,myhomepage.class);
 				Bundle data = new Bundle();
 				data.putString("user",username);
+				data.putString("name", name);
 				intent.putExtras(data);
 				startActivity(intent);
 				finish();

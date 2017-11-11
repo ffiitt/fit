@@ -67,6 +67,17 @@ public class test extends Activity{
 		layerDrawable.setLayerInset(1, 10, 10,10, 10);
 		final View view = findViewById(R.id.view);
 		view.setBackground(layerDrawable);
+		final Button button_back = (Button)findViewById(R.id.back);
+		button_back.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+	    		Intent intent = new Intent(test.this,MainActivity.class);//test其实是login
+				startActivity(intent);
+				finish();
+			}
+		});
 		handler1 = new Handler(){
 			@Override
 			public void handleMessage(Message msg){
@@ -120,8 +131,9 @@ public class test extends Activity{
 			if(responseMsg.substring(0,8).equals("successy")){
 				Intent intent = new Intent(test.this,myhomepage.class);//test其实是login
 				int te = responseMsg.indexOf(" ");
-				System.out.println(responseMsg);
+				String name = responseMsg.substring(te+1);
 				data.putString("user",responseMsg.substring(8,te));
+				data.putString("name", name);
 				intent.putExtras(data);
 				startActivity(intent);
 				finish();
@@ -133,7 +145,7 @@ public class test extends Activity{
 				finish();
 			}
 		}
-	}ee
+	}
 	public void sendjson(){
 		String url = "http://10.0.2.2:8080/web/FirstServlet";
 	    //String str= "";
