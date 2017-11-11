@@ -133,7 +133,7 @@ public class test extends Activity{
 				finish();
 			}
 		}
-	}e
+	}ee
 	public void sendjson(){
 		String url = "http://10.0.2.2:8080/web/FirstServlet";
 	    //String str= "";

@@ -1,0 +1,145 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.example.project.MainActivity" 
+    >
+    
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="510dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <ImageSwitcher
+            android:id="@+id/imageSwitcherinfo"
+            android:layout_width="fill_parent"
+            android:layout_height="200dp" >
+        </ImageSwitcher>
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="50dp"
+            android:stretchColumns="1" >
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="场馆名称"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/name"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:text="篮球"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <View
+                android:layout_height="3dip"
+                android:background="#FF9090" />
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="开馆时间"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:text="羽毛球"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <View
+                android:layout_height="3dip"
+                android:background="#FF9090" />
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="场馆地址"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/adress"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:text="网球"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <View
+                android:layout_height="3dip"
+                android:background="#FF9090" />
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="联系电话"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/tele"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:text="健身"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <View
+                android:layout_height="3dip"
+                android:background="#FF9090" />
+             <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="其他详细信息"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/other"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:text="健身"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <View
+                android:layout_height="3dip"
+                android:background="#FF9090" />
+        </TableLayout>
+    </LinearLayout>
+	<Button
+        android:id="@+id/editinf"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="480dp"
+        android:text="修改场馆信息" 
+        android:background="@drawable/shapecir"/>
+
+    <Button
+        android:id="@+id/news"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginLeft="200dp"
+        android:text="发布比赛通知"
+        android:background="@drawable/shapecir"/>
+</RelativeLayout>
+
