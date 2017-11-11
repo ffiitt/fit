@@ -119,11 +119,13 @@ public class test extends Activity{
 			System.out.println(responseMsg.substring(0,8));
 			if(responseMsg.substring(0,8).equals("successy")){
 				Intent intent = new Intent(test.this,myhomepage.class);//test∆‰ µ «login
-				data.putString("user",responseMsg.substring(8));
+				int te = responseMsg.indexOf(" ");
+				System.out.println(responseMsg);
+				data.putString("user",responseMsg.substring(8,te));
 				intent.putExtras(data);
 				startActivity(intent);
 				finish();
-			}else if(responseMsg.substring(0,7).equals("successn")){
+			}else if(responseMsg.substring(0,8).equals("successn")){
 				Intent intent = new Intent(test.this,stadium.class);
 				data.putString("user", responseMsg.substring(8));
 				intent.putExtras(data);

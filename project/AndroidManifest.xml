@@ -37,6 +37,9 @@
         <activity
             android:name=".myhomepage">
         </activity>
+        <activity
+            android:name=".stadium">
+        </activity>
     </application>
 
 </manifest>
