@@ -59,8 +59,58 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 		}
 		final ImageButton my = (ImageButton)findViewById(R.id.myhome);
 		my.setOnClickListener(new listen_my());
-		final Button fit = (Button)findViewById(R.id.fit);
+		final Button fit = (Button)findViewById(R.id.outdoor);
 		fit.setOnClickListener(new listen_fit());
+		final Button swim = (Button)findViewById(R.id.swim);
+		swim.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(MainActivity.this,infopage.class);
+				startActivity(intent);				
+			}
+		});
+		final Button bask = (Button)findViewById(R.id.basketball);
+		bask.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(MainActivity.this,infopage.class);
+				startActivity(intent);				
+			}
+		});
+		final Button badmin = (Button)findViewById(R.id.badminton);
+		badmin.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(MainActivity.this,infopage.class);
+				startActivity(intent);				
+			}
+		});
+		final Button tennis = (Button)findViewById(R.id.tennis);
+		tennis.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(MainActivity.this,infopage.class);
+				startActivity(intent);				
+			}
+		});
+		final Button fitt = (Button)findViewById(R.id.fit);
+		fitt.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(MainActivity.this,infopage.class);
+				startActivity(intent);				
+			}
+		});
 		final Button back = (Button)findViewById(R.id.back);
 		back.setOnClickListener(new OnClickListener() {
 			

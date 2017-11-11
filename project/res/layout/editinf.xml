@@ -1,0 +1,193 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.suishoupaipublish.MainActivity"
+    tools:ignore="MergeRootFrame" >
+
+    <RelativeLayout
+        android:id="@+id/Layout_top"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+		
+        
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="修改场馆信息"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Layout_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center" >
+        
+
+        <Button
+            android:id="@+id/edok"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="确认修改"
+            android:textSize="20sp" />
+
+  
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Content_Layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/Layout_bottom"
+        android:layout_below="@id/Layout_top"
+        android:gravity="center" >
+       
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageViewedit"
+	            android:layout_width="match_parent"
+		        android:layout_height="120dp"
+		        android:layout_marginLeft="30dp"
+		        android:layout_marginRight="30dp"
+                
+                android:background="@color/darkgray"
+                android:src="@drawable/add" />
+            
+            
+			<Button
+	        android:id="@+id/addpng"
+	        android:layout_width="match_parent"
+	        android:layout_height="40dp"
+	        android:layout_marginLeft="30dp"
+	        android:layout_marginRight="30dp"
+	        android:text="选择图片"/>
+            
+            
+            <Button
+	        android:id="@+id/loginpng"
+	        android:layout_width="match_parent"
+	        android:layout_height="40dp"
+	        android:layout_marginLeft="30dp"
+	        android:layout_marginRight="30dp"
+	        android:text="上传图片"/>
+ 			
+             <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="20dp"
+            android:stretchColumns="1" >
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="场馆名称"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/name"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <View
+                android:layout_height="3dip"
+                android:background="#FF9090" />
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="开馆时间"
+                    android:textSize="20dp" />
+
+                 <EditText
+                    android:id="@+id/time"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <View
+                android:layout_height="3dip"
+                android:background="#FF9090" />
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="场馆地址"
+                    android:textSize="20dp" />
+
+                 <EditText
+                    android:id="@+id/adress"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <View
+                android:layout_height="3dip"
+                android:background="#FF9090" />
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="联系电话"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/tele"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:textSize="20dp" />
+            </TableRow>
+            <View
+                android:layout_height="3dip"
+                android:background="#FF9090" />
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="其他详细信息"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/other"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <View
+                android:layout_height="3dip"
+                android:background="#FF9090" />
+        </TableLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -166,7 +166,7 @@
             android:id="@+id/fit"
             android:gravity="center_vertical"
             android:paddingLeft="10dip"
-            android:text="校外,此处原是健身"
+            android:text="健身"
             android:drawableLeft="@drawable/basketball"
             android:layout_marginTop="2dp"
             android:paddingRight="10dp"

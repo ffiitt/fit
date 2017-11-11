@@ -40,22 +40,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class stadium extends Activity{
+public class editinf extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.admin);
-        final Button editinf = (Button)findViewById(R.id.editinf);
-        editinf.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent(stadium.this,editinf.class);
-				startActivity(intent);
-			}
-		});
+		setContentView(R.layout.editinf);
 	}
 
 

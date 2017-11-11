@@ -40,6 +40,12 @@
         <activity
             android:name=".stadium">
         </activity>
+        <activity
+            android:name=".editinf">
+        </activity>
+        <activity
+            android:name=".infopage">
+        </activity>
     </application>
 
 </manifest>
