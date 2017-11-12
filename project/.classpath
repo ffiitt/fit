@@ -5,6 +5,6 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
-	<classpathentry kind="lib" path="C:/Users/dell/Desktop/android-support-v7-25.0.0.jar"/>
+	<classpathentry kind="lib" path="E:/qqfiles/547783993/FileRecv/android-support-v7-25.0.0.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

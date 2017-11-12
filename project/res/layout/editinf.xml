@@ -5,8 +5,41 @@
     android:layout_height="match_parent"
     tools:context="com.example.suishoupaipublish.MainActivity"
     tools:ignore="MergeRootFrame" >
-
-    <RelativeLayout
+	<RelativeLayout 
+	   android:id="@+id/Layout_top"
+       android:layout_width="fill_parent"
+       android:layout_height="39dp"
+       android:background="#ed4255">
+    <TextView
+       android:id="@+id/text_title"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_alignParentBottom="true"
+       android:layout_alignParentLeft="true"
+       android:ellipsize="marquee"
+       android:gravity="center_horizontal"
+       android:paddingTop="6dp"
+       android:text="修改场馆信息"
+       android:textColor="#ffffffff"
+       android:textSize="20dp" />
+   <Button
+       android:id = "@+id/back"
+       android:layout_marginTop="6dp"
+       android:layout_width = "55dp"
+       android:layout_height = "30dp"
+       android:drawablePadding="1dp"
+       android:paddingLeft="1dp"
+       android:drawableLeft="@drawable/back"
+       android:gravity="center"
+       android:onClick="onClick"
+       android:text="返回"
+       android:textSize="15dp"
+       android:textColor="#ffffffff"
+       android:background="@android:color/transparent"
+       />  
+    </RelativeLayout>
+    
+    <!-- <RelativeLayout
         android:id="@+id/Layout_top"
         android:layout_width="fill_parent"
         android:layout_height="40dp"
@@ -22,7 +55,7 @@
             android:gravity="center"
             android:text="修改场馆信息"
             android:textSize="25sp" />
-    </RelativeLayout>
+    </RelativeLayout> -->
 
     <RelativeLayout
         android:id="@+id/Layout_bottom"
@@ -34,9 +67,11 @@
 
         <Button
             android:id="@+id/edok"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="fill_parent"
+            android:background="#fa8072"
             android:text="确认修改"
+            android:textColor="#ffffff"
             android:textSize="20sp" />
 
   
@@ -55,6 +90,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
             android:layout_alignParentBottom="true"
             android:orientation="vertical" >
 
@@ -65,7 +101,7 @@
 		        android:layout_marginLeft="30dp"
 		        android:layout_marginRight="30dp"
                 
-                android:background="@color/darkgray"
+                android:background="#dcdcdc"
                 android:src="@drawable/add" />
             
             
@@ -73,18 +109,24 @@
 	        android:id="@+id/addpng"
 	        android:layout_width="match_parent"
 	        android:layout_height="40dp"
+	        android:layout_marginTop="2dp"
 	        android:layout_marginLeft="30dp"
 	        android:layout_marginRight="30dp"
-	        android:text="选择图片"/>
+	        android:background="#fa8072"
+	        android:text="选择图片"
+	        android:textColor="#ffffff"/>
             
             
             <Button
 	        android:id="@+id/loginpng"
 	        android:layout_width="match_parent"
+	        android:layout_marginTop="2dp"
 	        android:layout_height="40dp"
 	        android:layout_marginLeft="30dp"
 	        android:layout_marginRight="30dp"
-	        android:text="上传图片"/>
+	        android:background="#fa8072"
+	        android:text="上传图片"
+	        android:textColor="#ffffff"/>
  			
              <TableLayout
             android:layout_width="fill_parent"

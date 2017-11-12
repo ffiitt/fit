@@ -139,7 +139,10 @@ public class test extends Activity{
 				finish();
 			}else if(responseMsg.substring(0,8).equals("successn")){
 				Intent intent = new Intent(test.this,stadium.class);
-				data.putString("user", responseMsg.substring(8));
+				int te = responseMsg.indexOf(" ");
+				String name = responseMsg.substring(te+1);
+				data.putString("user", responseMsg.substring(8,te));
+				data.putString("name", name);
 				intent.putExtras(data);
 				startActivity(intent);
 				finish();
