@@ -6,6 +6,7 @@ package com.example.project;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -15,12 +16,20 @@ import android.view.View.OnTouchListener;
 import android.view.Window;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher.ViewFactory;
+
 import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+
+import com.example.project.test.LoginThread;
 
 public class MainActivity extends Activity implements ViewFactory,OnTouchListener{
     private ImageSwitcher mImageSwitcher;
@@ -30,6 +39,7 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
     private boolean login = true;
     private String username = "";
     private String name = "";
+    private String responseMsg = "";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -68,6 +78,10 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(MainActivity.this,infopage.class);
+				Bundle data = new Bundle();
+				data.putString("user",username);
+				data.putString("name", name);
+				intent.putExtras(data);
 				startActivity(intent);				
 			}
 		});
@@ -78,6 +92,10 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(MainActivity.this,infopage.class);
+				Bundle data = new Bundle();
+				data.putString("user",username);
+				data.putString("name", name);
+				intent.putExtras(data);
 				startActivity(intent);				
 			}
 		});
@@ -88,6 +106,10 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(MainActivity.this,infopage.class);
+				Bundle data = new Bundle();
+				data.putString("user",username);
+				data.putString("name", name);
+				intent.putExtras(data);
 				startActivity(intent);				
 			}
 		});
@@ -98,6 +120,10 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(MainActivity.this,infopage.class);
+				Bundle data = new Bundle();
+				data.putString("user",username);
+				data.putString("name", name);
+				intent.putExtras(data);
 				startActivity(intent);				
 			}
 		});
@@ -108,6 +134,10 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(MainActivity.this,infopage.class);
+				Bundle data = new Bundle();
+				data.putString("user",username);
+				data.putString("name", name);
+				intent.putExtras(data);
 				startActivity(intent);				
 			}
 		});
@@ -142,14 +172,48 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 				startActivity(intent);
 				finish();
 			}else{
-				Intent intent = new Intent(MainActivity.this,myhomepage.class);
-				Bundle data = new Bundle();
-				data.putString("user",username);
-				data.putString("name", name);
-				intent.putExtras(data);
-				startActivity(intent);
-				finish();
+				Thread loginThread = new Thread(new LoginThread());
+				loginThread.start();
 			}
+		}
+	}
+	public boolean loginserver(){
+		boolean loginValidate = false;
+		String username1 = username;
+		String url = "http://10.0.2.2:8080/web/kindServlet";
+		url = url + "?" + "username=" + username1;
+		HttpClient client = new DefaultHttpClient();
+    	HttpGet request  = new HttpGet(url);
+    	try{   		
+    		HttpResponse response = client.execute(request);
+    		if(response.getStatusLine().getStatusCode()==200){
+    			loginValidate = true;
+    			responseMsg = EntityUtils.toString(response.getEntity());
+    			Bundle data = new Bundle();
+    			if(responseMsg.equals("successy")){
+    				Intent intent = new Intent(MainActivity.this,myhomepage.class);//test∆‰ µ «login
+    				data.putString("user",username);
+    				data.putString("name", name);
+    				intent.putExtras(data);
+    				startActivity(intent);
+    				finish();
+    			}else if(responseMsg.equals("successn")){
+    				Intent intent = new Intent(MainActivity.this,stadium.class);
+    				data.putString("user", username);
+    				data.putString("name", name);
+    				intent.putExtras(data);
+    				startActivity(intent);
+    				finish();
+    			}
+    		}
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
+    	return loginValidate;
+	}
+	class LoginThread implements Runnable{
+		public void run(){
+			boolean loginValidate = loginserver();
 		}
 	}
     @Override
