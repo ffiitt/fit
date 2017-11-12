@@ -21,7 +21,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher.ViewFactory;
 import org.apache.http.HttpResponse;
-
+//make a change
 public class MainActivity extends Activity implements ViewFactory,OnTouchListener{
     private ImageSwitcher mImageSwitcher;
     private int[] images;
