@@ -127,6 +127,7 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 			Intent intent = new Intent(MainActivity.this,outdoor.class);
 			Bundle data = new Bundle();
 			data.putString("user",username);
+			data.putString("name", name);
 			intent.putExtras(data);
 			startActivity(intent);
 			finish();

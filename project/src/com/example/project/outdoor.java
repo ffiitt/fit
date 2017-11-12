@@ -39,6 +39,7 @@ public class outdoor extends Activity{
 	private String[] count1;
 	private int number;
 	private String user="";
+	private String name="";
 	private ImageButton button = null;
 	Handler handler1;
 	@Override
@@ -88,11 +89,12 @@ public class outdoor extends Activity{
 			}
 			else{
 				user = data1.getString("user");
+				name = data1.getString("name");
 				//System.out.println(user+"13213");
 			}
 			Intent intent = new Intent(outdoor.this,MainActivity.class);
 			Bundle data = new Bundle();
-			
+			data.putString("name",name);
 			data.putString("user",user);
 			intent.putExtras(data);
 			startActivity(intent);
