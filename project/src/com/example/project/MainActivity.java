@@ -30,7 +30,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
 import com.example.project.test.LoginThread;
-
+//第一次迭代产物
 public class MainActivity extends Activity implements ViewFactory,OnTouchListener{
     private ImageSwitcher mImageSwitcher;
     private int[] images;
