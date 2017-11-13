@@ -67,7 +67,7 @@
                     android:id="@+id/name"
                     android:gravity="right"
                     android:padding="3dip"
-                    android:text="篮球"
+                    android:text="体育馆"
                     android:textSize="20dp" />
             </TableRow>
 
@@ -87,9 +87,28 @@
                     android:id="@+id/time"
                     android:gravity="right"
                     android:padding="3dip"
-                    android:text="羽毛球"
+                    android:text="2017-09-01"
                     android:textSize="20dp" />
             </TableRow>
+            <View
+                android:layout_height="3dip"
+                android:background="#FF9090" />
+            <TableRow >
+             <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="服务价格"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/price"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:text="免费"
+                    android:textSize="20dp" />
+               </TableRow>
+
+            
 
             <View
                 android:layout_height="3dip"
@@ -107,7 +126,7 @@
                     android:id="@+id/adress"
                     android:gravity="right"
                     android:padding="3dip"
-                    android:text="网球"
+                    android:text="哈工大一校区"
                     android:textSize="20dp" />
             </TableRow>
 
@@ -127,7 +146,7 @@
                     android:id="@+id/tele"
                     android:gravity="right"
                     android:padding="3dip"
-                    android:text="健身"
+                    android:text="0011223344"
                     android:textSize="20dp" />
             </TableRow>
 
@@ -146,7 +165,7 @@
                     android:id="@+id/other"
                     android:gravity="right"
                     android:padding="3dip"
-                    android:text="健身"
+                    android:text="欢迎观临"
                     android:textSize="20dp" />
             </TableRow>
 

@@ -67,6 +67,17 @@ public class test extends Activity{
 		layerDrawable.setLayerInset(1, 10, 10,10, 10);
 		final View view = findViewById(R.id.view);
 		view.setBackground(layerDrawable);
+		final Button button_register = (Button)findViewById(R.id.zhuche);
+		button_register.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(test.this,register.class);//test∆‰ µ «login
+				startActivity(intent);
+				finish();
+			}
+		});
 		final Button button_back = (Button)findViewById(R.id.back);
 		button_back.setOnClickListener(new OnClickListener() {
 			

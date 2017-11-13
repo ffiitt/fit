@@ -93,7 +93,25 @@
             <View
                 android:layout_height="3dip"
                 android:background="#FF9090" />
+			<TableRow>
 
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="服务价格"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/price"
+                    android:gravity="right"
+                    android:padding="3dip"
+                    android:text="免费"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <View
+                android:layout_height="3dip"
+                android:background="#FF9090" />
             <TableRow>
 
                 <TextView
@@ -154,5 +172,13 @@
                 android:background="#FF9090" />
         </TableLayout>
     </LinearLayout>
+    <Button 
+        android:id = "@+id/yuding"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop = "490dp"
+        android:background="@drawable/login_shape"
+        android:textColor="#FFB6C1"
+        android:text = "查看场馆使用情况"/>
 	
 </RelativeLayout>
