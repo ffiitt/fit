@@ -93,6 +93,7 @@ public final class R {
         public static final int imageSwitcher1=0x7f0a0003;
         public static final int imageSwitcherinfo=0x7f0a000b;
         public static final int imageViewedit=0x7f0a0018;
+        public static final int importnews=0x7f0a0012;
         public static final int insert_agenga=0x7f0a002e;
         public static final int login=0x7f0a001e;
         public static final int loginpng=0x7f0a001a;
@@ -100,7 +101,6 @@ public final class R {
         public static final int my_my=0x7f0a0029;
         public static final int myhome=0x7f0a0002;
         public static final int name=0x7f0a000c;
-        public static final int news=0x7f0a0012;
         public static final int other=0x7f0a0010;
         public static final int outdoor=0x7f0a000a;
         public static final int password=0x7f0a001d;

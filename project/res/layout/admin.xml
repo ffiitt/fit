@@ -165,7 +165,7 @@
         android:background="@drawable/shapecir"/>
 
     <Button
-        android:id="@+id/news"
+        android:id="@+id/importnews"
         android:layout_width="185dp"
         android:layout_height="50dp"
         android:layout_marginTop="480dp"

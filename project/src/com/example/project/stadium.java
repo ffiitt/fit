@@ -27,6 +27,8 @@ import org.apache.http.HttpResponse;
 import com.example.project.editinf.listen_back;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -71,6 +73,20 @@ public class stadium extends Activity implements ViewFactory,OnTouchListener{
 		user = data.getString("user");
         final Button editinf = (Button)findViewById(R.id.editinf);
         editinf.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(stadium.this,editinf.class);
+				Bundle data = new Bundle();
+				data.putString("user",user);
+				data.putString("name", name);
+				intent.putExtras(data);
+				startActivity(intent);
+			}
+		});
+        final Button importnews = (Button)findViewById(R.id.importnews);
+        importnews.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
