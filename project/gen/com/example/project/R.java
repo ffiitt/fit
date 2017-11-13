@@ -78,7 +78,7 @@ public final class R {
         public static final int Thursday=0x7f0a0025;
         public static final int Tuesday=0x7f0a0023;
         public static final int Wednesday=0x7f0a0024;
-        public static final int action_settings=0x7f0a0032;
+        public static final int action_settings=0x7f0a0038;
         public static final int addpng=0x7f0a001a;
         public static final int adress=0x7f0a000f;
         public static final int autoComplete=0x7f0a0030;
@@ -101,10 +101,14 @@ public final class R {
         public static final int my_my=0x7f0a002a;
         public static final int myhome=0x7f0a0002;
         public static final int name=0x7f0a000c;
+        public static final int nicheng=0x7f0a0033;
         public static final int other=0x7f0a0011;
         public static final int outdoor=0x7f0a000a;
         public static final int password=0x7f0a001e;
         public static final int price=0x7f0a000e;
+        public static final int radioGroup1=0x7f0a0034;
+        public static final int radiobutton1=0x7f0a0036;
+        public static final int radiobutton2=0x7f0a0035;
         public static final int real=0x7f0a002b;
         public static final int rr=0x7f0a002c;
         public static final int search=0x7f0a0031;
@@ -118,6 +122,8 @@ public final class R {
         public static final int user_ph=0x7f0a002e;
         public static final int username=0x7f0a001d;
         public static final int view=0x7f0a001c;
+        public static final int wel=0x7f0a0032;
+        public static final int zhuce=0x7f0a0037;
         public static final int zhuche=0x7f0a0020;
     }
     public static final class layout {
@@ -129,6 +135,7 @@ public final class R {
         public static final int my=0x7f030005;
         public static final int myhomepage=0x7f030006;
         public static final int outdoor=0x7f030007;
+        public static final int register=0x7f030008;
     }
     public static final class menu {
         public static final int main=0x7f090000;

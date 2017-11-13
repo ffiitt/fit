@@ -46,6 +46,9 @@
         <activity
             android:name=".infopage">
         </activity>
+        <activity
+            android:name=".register">
+        </activity>
     </application>
 
 </manifest>
