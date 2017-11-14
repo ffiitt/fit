@@ -82,7 +82,8 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 				data.putString("user",username);
 				data.putString("name", name);
 				intent.putExtras(data);
-				startActivity(intent);				
+				startActivity(intent);	
+				finish();
 			}
 		});
 		final Button bask = (Button)findViewById(R.id.basketball);
@@ -96,7 +97,8 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 				data.putString("user",username);
 				data.putString("name", name);
 				intent.putExtras(data);
-				startActivity(intent);				
+				startActivity(intent);	
+				finish();
 			}
 		});
 		final Button badmin = (Button)findViewById(R.id.badminton);
@@ -110,7 +112,8 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 				data.putString("user",username);
 				data.putString("name", name);
 				intent.putExtras(data);
-				startActivity(intent);				
+				startActivity(intent);	
+				finish();
 			}
 		});
 		final Button tennis = (Button)findViewById(R.id.tennis);
@@ -125,7 +128,8 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 				data.putString("name", name);
 				data.putString("stadium","12345678");
 				intent.putExtras(data);
-				startActivity(intent);				
+				startActivity(intent);	
+				finish();
 			}
 		});
 		final Button fitt = (Button)findViewById(R.id.fit);
@@ -139,7 +143,8 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 				data.putString("user",username);
 				data.putString("name", name);
 				intent.putExtras(data);
-				startActivity(intent);				
+				startActivity(intent);
+				finish();
 			}
 		});
 		final Button back = (Button)findViewById(R.id.back);

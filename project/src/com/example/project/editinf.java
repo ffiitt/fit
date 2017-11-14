@@ -76,6 +76,7 @@ public class editinf extends Activity {
 			data.putString("name", name);
 			intent.putExtras(data);
 			startActivity(intent);
+			finish();
     	}
 	}
 	

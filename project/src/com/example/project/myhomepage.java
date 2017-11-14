@@ -167,6 +167,7 @@ public class myhomepage extends Activity{
 			data.putString("name", name);
 			intent.putExtras(data);
 			startActivity(intent);
+			finish();
     	}
 	}
 	public void draw_agenga(){
