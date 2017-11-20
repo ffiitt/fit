@@ -173,6 +173,7 @@ public class myhomepage extends Activity{
 	public void draw_agenga(){
 		RelativeLayout r = (RelativeLayout)findViewById(R.id.rr);
 		r.removeAllViews();
+		ArrayList<Integer> s = new ArrayList<Integer>();
 		for(int i = 0 ; i < agena.size() ; i++){
 				//新加的
 			View vv = new View(this);

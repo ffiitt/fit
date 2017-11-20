@@ -52,6 +52,9 @@
         <activity
             android:name=".register">
         </activity>
+        <activity
+            android:name=".match">
+        </activity>
     </application>
 
 </manifest>
