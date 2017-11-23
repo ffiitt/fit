@@ -85,7 +85,7 @@
        android:id="@+id/myscollview"
        android:layout_width="350dp"
        android:layout_height="470dp"
-       android:layout_marginTop="80dp"
+       android:layout_marginTop="90dp"
        android:scrollbars="none" >
      <RelativeLayout 
         android:layout_width="fill_parent"
