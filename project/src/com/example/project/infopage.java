@@ -25,8 +25,11 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 
 import com.example.project.myhomepage.listen_back;
+import com.example.project.test.LoginThread;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -61,6 +64,10 @@ public class infopage extends Activity implements ViewFactory,OnTouchListener{
     private String name = "";
     private int currentPosition=0;
     private float downX;
+    Handler handler1;
+    private String infodevice = "";
+    private boolean free = true;
+    private String stadium = "";
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -71,6 +78,7 @@ public class infopage extends Activity implements ViewFactory,OnTouchListener{
 		Bundle data = intent.getExtras();
 		name = data.getString("name");
 		user = data.getString("user");
+		stadium = data.getString("stadium");
 		images = new int[]{R.drawable.sta1,R.drawable.stta2,R.drawable.sta3};
 		mImageSwitcher = (ImageSwitcher)findViewById(R.id.imageSwitcherinfo);
 		mImageSwitcher.setFactory(this);
@@ -79,6 +87,85 @@ public class infopage extends Activity implements ViewFactory,OnTouchListener{
 		mImageSwitcher.setImageResource(images[currentPosition]);
 		final Button back = (Button)findViewById(R.id.back);
 		back.setOnClickListener(new listen_back());
+		final Button yuding = (Button)findViewById(R.id.yuding);
+		yuding.setOnClickListener(new listen_yuding());
+		if(free){
+			Thread loginThread = new Thread(new LoginThread());
+			loginThread.start();
+		}
+		handler1 = new Handler(){
+			@Override
+			public void handleMessage(Message msg){
+					Bundle bundle = msg.getData();
+                    infodevice = bundle.getString("infodevice");
+			}
+		};
+	}
+	class listen_yuding implements OnClickListener{
+		@Override
+		public void onClick(View v){
+			if(free){
+				showdialog();
+			}
+		}
+	}
+	public void sendjson(){
+		String url = "http://10.0.2.2:8080/web/infodeviceServlet";
+	    //String str= "";
+		HttpPost post = new HttpPost(url);
+		String muser = stadium;
+		try{
+			JSONObject json1 = new JSONObject();
+			Object username = muser;
+			json1.put("username", username);
+			//System.out.print(json1.toString());
+			StringEntity se = new StringEntity(json1.toString());
+			se.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
+			post.setEntity(se);
+			HttpClient httpclient = new DefaultHttpClient();
+			HttpResponse response = httpclient.execute(post);
+			HttpEntity entity = response.getEntity();
+			InputStream inputStream = entity.getContent();
+			InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+			BufferedReader reader = new BufferedReader(inputStreamReader);
+			String s;
+			StringBuffer result = new StringBuffer("");
+			while((s=reader.readLine()) != null){
+				result.append(s);
+			}
+			reader.close();
+			JSONObject json = new JSONObject(result.toString());
+		    infodevice = json.getString("infodevice");
+		    System.out.println(infodevice);
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	private void showdialog(){
+		final AlertDialog.Builder dialog = new AlertDialog.Builder(infopage.this);
+		dialog.setTitle("设施使用信息");
+		dialog.setMessage(infodevice);
+		dialog.setNegativeButton("关闭", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		dialog.show();
+		
+	}
+	class LoginThread implements Runnable{
+		public void run(){
+			sendjson();
+			Message message=Message.obtain();
+			Bundle bundle = new Bundle();
+            bundle.putString("infodevice",infodevice);
+			message.setData(bundle);
+			handler1.sendMessage(message);
+		}
 	}
 	class listen_back implements OnClickListener{
 		@Override

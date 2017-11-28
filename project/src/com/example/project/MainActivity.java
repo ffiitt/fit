@@ -123,6 +123,7 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 				Bundle data = new Bundle();
 				data.putString("user",username);
 				data.putString("name", name);
+				data.putString("stadium","12345678");
 				intent.putExtras(data);
 				startActivity(intent);				
 			}

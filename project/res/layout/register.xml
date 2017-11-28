@@ -2,12 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="#FFFAFA">
     <RelativeLayout 
        android:layout_width="fill_parent"
        android:layout_height="39dp"
        android:background="#ed4255">
-    <TextView
+
+   <TextView
        android:id="@+id/text_title"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
@@ -34,14 +36,17 @@
        android:textColor="#ffffffff"
        android:background="@android:color/transparent"
        />  
-    </RelativeLayout>
-	<!-- <View
-        android:id="@+id/view"
-        android:layout_width="100dp"
-        android:layout_height = "100dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="130dp"/> -->
-    <TextView
+   <ImageButton
+       android:id="@+id/myhome"
+       android:layout_width="30dp"
+       android:paddingTop="1dp"
+       android:layout_alignParentRight="true"
+       android:layout_marginRight="10dp"
+       android:background="@android:color/transparent"
+       android:layout_height="35dp"
+       android:src="@drawable/user"/>
+   </RelativeLayout> 
+   <TextView
         android:id="@+id/wel"
         android:layout_width="100dp"
         android:layout_height="27dp"
@@ -169,4 +174,4 @@
         android:textColor="#FFB6C1"/>
     
 
-</RelativeLayout> 
+</RelativeLayout>

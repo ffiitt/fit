@@ -89,9 +89,12 @@
                     android:padding="3dip"
                     android:text="2017-09-01"
                     android:textSize="20dp" />
-            <TableRow>
-
-                <TextView
+            </TableRow>
+            <View
+                android:layout_height="3dip"
+                android:background="#FF9090" />
+            <TableRow >
+             <TextView
                     android:layout_column="1"
                     android:padding="3dip"
                     android:text="服务价格"
@@ -103,8 +106,9 @@
                     android:padding="3dip"
                     android:text="免费"
                     android:textSize="20dp" />
-            </TableRow>
-            </TableRow>
+               </TableRow>
+
+            
 
             <View
                 android:layout_height="3dip"

@@ -85,20 +85,20 @@ public class stadium extends Activity implements ViewFactory,OnTouchListener{
 				startActivity(intent);
 			}
 		});
-        final Button importnews = (Button)findViewById(R.id.importnews);
-        importnews.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent(stadium.this,editinf.class);
-				Bundle data = new Bundle();
-				data.putString("user",user);
-				data.putString("name", name);
-				intent.putExtras(data);
-				startActivity(intent);
-			}
-		});
+//        final Button importnews = (Button)findViewById(R.id.importnews);
+//        importnews.setOnClickListener(new OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View v) {
+//				// TODO Auto-generated method stub
+//				Intent intent = new Intent(stadium.this,editinf.class);
+//				Bundle data = new Bundle();
+//				data.putString("user",user);
+//				data.putString("name", name);
+//				intent.putExtras(data);
+//				startActivity(intent);
+//			}
+//		});
         String kind = getIntent().getStringExtra("kind");
 		images = new int[]{R.drawable.sta1,R.drawable.stta2,R.drawable.sta3};
 		mImageSwitcher = (ImageSwitcher)findViewById(R.id.imageSwitcherinfo);
