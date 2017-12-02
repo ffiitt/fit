@@ -15,6 +15,7 @@ import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
 
+import com.example.project.myhomepage.thread;
 import com.example.project.test.LoginThread;
 
 import android.app.Activity;
@@ -37,7 +38,7 @@ import android.widget.Toast;
 public class match extends Activity{
 	private String user="";
     private String name="";
-    boolean is_signed = false;
+    boolean is_end = false;
     private ArrayList<String> matchID_ing = new ArrayList<String>();
     private ArrayList<String> matchID_ed = new ArrayList<String>();
     private ArrayList<String> matchname_ing = new ArrayList<String>();
@@ -59,7 +60,9 @@ public class match extends Activity{
 		name = data.getString("name");
 		user = data.getString("user");
         init();
-     	draw_match(is_signed);
+     	draw_match(is_end);
+//		Thread loginThread = new Thread(new thread());
+//		loginThread.start(); 
 		final Button signed = (Button)findViewById(R.id.signed);
 		signed.setOnClickListener(new OnClickListener() {
 			
@@ -70,9 +73,9 @@ public class match extends Activity{
 				left.setBackgroundColor(Color.WHITE);
 				final View right = (View)findViewById(R.id.right);
 				right.setBackgroundColor(Color.RED);
-				if(!is_signed){
-					is_signed = true;
-					draw_match(is_signed);
+				if(!is_end){
+					is_end = true;
+					draw_match(is_end);
 				}
 			}
 		});
@@ -86,9 +89,9 @@ public class match extends Activity{
 				left.setBackgroundColor(Color.RED);
 				final View right = (View)findViewById(R.id.right);
 				right.setBackgroundColor(Color.WHITE);
-				if(is_signed){
-					is_signed = false;
-					draw_match(is_signed);
+				if(is_end){
+					is_end = false;
+					draw_match(is_end);
 				}
 			}
 		});
@@ -106,7 +109,7 @@ public class match extends Activity{
     	int listlength = 0;
     	RelativeLayout r = (RelativeLayout)findViewById(R.id.rr);
     	r.removeAllViews();
-    	if(!is_signed){
+    	if(!is_end){
     		listlength = matchID_ing.size();
     	}else{
     		listlength = matchID_ed.size();
@@ -122,7 +125,7 @@ public class match extends Activity{
 			r.addView(vv,param0);
 			final TextView text = new TextView(this);
 			android.widget.RelativeLayout.LayoutParams param1 = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-			if(!is_signed){
+			if(!is_end){
 				text.setText(matchname_ing.get(i));
 			}
 			else{
@@ -168,6 +171,59 @@ public class match extends Activity{
 			startActivity(intent);
 			finish();
     	}
+	}
+	public void sendjson(){
+		int number = 0;
+		Intent intent = getIntent();
+		Bundle data = intent.getExtras();
+		user = data.getString("user");
+		String url = "http://10.0.2.2:8080/web/matchServlet";
+	    //String str= "";
+		HttpPost post = new HttpPost(url);
+		try{
+			JSONObject json1 = new JSONObject();
+			Object username = user;
+			json1.put("username", username);
+			StringEntity se = new StringEntity(json1.toString());
+			se.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
+			post.setEntity(se);
+			HttpClient httpclient = new DefaultHttpClient();
+			HttpResponse response = httpclient.execute(post);
+			HttpEntity entity = response.getEntity();
+			InputStream inputStream = entity.getContent();
+			InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+			BufferedReader reader = new BufferedReader(inputStreamReader);
+			String s;
+			StringBuffer result = new StringBuffer("");
+			while((s=reader.readLine()) != null){
+				result.append(s);
+			}
+			reader.close();
+			JSONObject json = new JSONObject(result.toString());
+			
+		    number = json.getInt("number");
+			System.out.println("@@@@@@@@@@");
+			System.out.println(number);
+			for(int i = 0 ; i < number ; i++){
+				matchID_ing.add(json.getString(""+i+""+"agena"));
+			    matchID_ed.add(json.getString(""+i+""+"time"));
+			}	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	class thread implements Runnable{
+		public void run(){
+			sendjson();
+			Message message=Message.obtain();
+			Bundle bundle = new Bundle();
+			bundle.putStringArrayList("matchID_ing",matchID_ing);
+			bundle.putStringArrayList("matchID_ed", matchID_ed);
+			bundle.putStringArrayList("matchname_ing", matchname_ing);
+			bundle.putStringArrayList("matchname_ed", matchname_ed);
+			message.setData(bundle);
+			handler1.sendMessage(message);
+		}
 	}
 
 

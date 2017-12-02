@@ -291,8 +291,22 @@ public class myhomepage extends Activity{
 					@Override
 					public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 						// TODO Auto-generated method stub
-						time.add(year+"-"+(monthOfYear+1)+"-"+(dayOfMonth));
-						temp_time=year+"-"+(monthOfYear+1)+"-"+(dayOfMonth);
+						if(monthOfYear <= 8 && dayOfMonth < 10){
+							time.add(year+"-0"+(monthOfYear+1)+"-0"+(dayOfMonth));
+							temp_time=year+"-0"+(monthOfYear+1)+"-0"+(dayOfMonth);
+						}
+						else if(monthOfYear <= 8 && dayOfMonth >= 10){
+							time.add(year+"-0"+(monthOfYear+1)+"-"+(dayOfMonth));
+							temp_time=year+"-0"+(monthOfYear+1)+"-"+(dayOfMonth);
+						}
+						else if(monthOfYear > 8 && dayOfMonth < 10){
+							time.add(year+"-"+(monthOfYear+1)+"-0"+(dayOfMonth));
+							temp_time=year+"-"+(monthOfYear+1)+"-0"+(dayOfMonth);
+						}
+						else{
+							temp_time=year+"-"+(monthOfYear+1)+"-"+(dayOfMonth);
+							time.add(year+"-"+(monthOfYear+1)+"-"+(dayOfMonth));
+						}
                         show_inputdialog();
 					}
 				}, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
@@ -383,7 +397,6 @@ public class myhomepage extends Activity{
 			Object username = user;
 			Object ag = temp_agena;
 			Object ti = temp_time;
-			System.out.println(temp_agena+"3333");
 			json1.put("username", username);
 			json1.put("time", ti);
 			json1.put("agena", ag);
