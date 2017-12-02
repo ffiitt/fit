@@ -13,6 +13,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.example.project.myhomepage.thread;
@@ -59,10 +60,21 @@ public class match extends Activity{
 		Bundle data = intent.getExtras();
 		name = data.getString("name");
 		user = data.getString("user");
-        init();
-     	draw_match(is_end);
-//		Thread loginThread = new Thread(new thread());
-//		loginThread.start(); 
+//        init();
+//     	draw_match(is_end);
+		Thread loginThread = new Thread(new thread());
+		loginThread.start(); 
+		handler1 = new Handler(){
+			@Override
+			public void handleMessage(Message msg){
+					Bundle bundle = msg.getData();
+					matchname_ing = bundle.getStringArrayList("matchname_ing");
+					matchname_ed = bundle.getStringArrayList("matchname_ed");
+					matchID_ing = bundle.getStringArrayList("matchID_ing");
+					matchID_ed = bundle.getStringArrayList("matchID_ed");
+					draw_match(is_end);
+			}
+		};
 		final Button signed = (Button)findViewById(R.id.signed);
 		signed.setOnClickListener(new OnClickListener() {
 			
@@ -110,9 +122,9 @@ public class match extends Activity{
     	RelativeLayout r = (RelativeLayout)findViewById(R.id.rr);
     	r.removeAllViews();
     	if(!is_end){
-    		listlength = matchID_ing.size();
+    		listlength = matchname_ing.size();
     	}else{
-    		listlength = matchID_ed.size();
+    		listlength = matchname_ed.size();
     	}
     	for(int i = 0 ; i < listlength; i++ ){
     		View vv = new View(this);
@@ -200,14 +212,24 @@ public class match extends Activity{
 			}
 			reader.close();
 			JSONObject json = new JSONObject(result.toString());
-			
-		    number = json.getInt("number");
-			System.out.println("@@@@@@@@@@");
-			System.out.println(number);
-			for(int i = 0 ; i < number ; i++){
-				matchID_ing.add(json.getString(""+i+""+"agena"));
-			    matchID_ed.add(json.getString(""+i+""+"time"));
-			}	
+			JSONArray temp_ing = json.getJSONArray("matchname_ing");
+			JSONArray temp_ed = json.getJSONArray("matchname_ed");
+			JSONArray tempid_ing = json.getJSONArray("matchid_ing");
+			JSONArray tempid_ed = json.getJSONArray("matchid_ed");
+			for(int i = 0 ; i < temp_ing.length() ; i++){
+				matchname_ing.add(temp_ing.getString(i));
+			}
+			for(int i = 0 ; i < temp_ed.length() ; i++){
+				matchname_ed.add(temp_ed.getString(i));
+			}
+			for(int i = 0 ; i < tempid_ing.length() ; i++){
+				matchID_ing.add(tempid_ing.getString(i));
+				System.out.println(tempid_ing.getString(i));
+			}
+			for(int i = 0 ; i < tempid_ed.length() ; i++){
+				matchID_ed.add(tempid_ed.getString(i));
+				System.out.println(tempid_ed.getString(i));
+			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}
