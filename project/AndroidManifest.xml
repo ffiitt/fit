@@ -55,6 +55,9 @@
         <activity
             android:name=".match">
         </activity>
+        <activity
+            android:name=".matchifo">
+        </activity>
     </application>
 
 </manifest>

@@ -168,6 +168,23 @@ public class match extends Activity{
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
 					System.out.println(bu.getBottom());
+					int position = bu.getBottom();
+					int index = (position - 300) / 310;
+					Intent intent = new Intent(match.this,matchifo.class);
+					Bundle data = new Bundle();
+    				data.putString("user", user);
+    				data.putString("name", name);
+    				if(is_end){
+    					data.putString("matchID", matchID_ed.get(index));
+    					System.out.println("结束了");
+    				}else{
+    					data.putString("matchID", matchID_ing.get(index));
+    					System.out.println("还可以报名");
+    				}
+    				intent.putExtras(data);
+    				startActivity(intent);
+    				finish();
+					
 				}
 			});
     	}
