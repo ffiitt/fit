@@ -201,7 +201,6 @@ public class match extends Activity{
 			finish();
     	}
 	}
-	#dadada
 	public void sendjson(){
 		int number = 0;
 		Intent intent = getIntent();
