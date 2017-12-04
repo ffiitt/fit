@@ -167,11 +167,13 @@ public class myhomepage extends Activity{
 			data.putString("name", name);
 			intent.putExtras(data);
 			startActivity(intent);
+			finish();
     	}
 	}
 	public void draw_agenga(){
 		RelativeLayout r = (RelativeLayout)findViewById(R.id.rr);
 		r.removeAllViews();
+		ArrayList<Integer> s = new ArrayList<Integer>();
 		for(int i = 0 ; i < agena.size() ; i++){
 				//新加的
 			View vv = new View(this);

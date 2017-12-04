@@ -176,6 +176,7 @@ public class infopage extends Activity implements ViewFactory,OnTouchListener{
     		data.putString("name", name);
 			intent.putExtras(data);
 			startActivity(intent);
+			finish();
     	}
 	}
 	@Override

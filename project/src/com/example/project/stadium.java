@@ -83,6 +83,7 @@ public class stadium extends Activity implements ViewFactory,OnTouchListener{
 				data.putString("name", name);
 				intent.putExtras(data);
 				startActivity(intent);
+				finish();
 			}
 		});
 //        final Button importnews = (Button)findViewById(R.id.importnews);
@@ -119,6 +120,7 @@ public class stadium extends Activity implements ViewFactory,OnTouchListener{
 			data.putString("name", name);
 			intent.putExtras(data);
 			startActivity(intent);
+			finish();
     	}
 	}
 	@Override

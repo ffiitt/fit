@@ -52,6 +52,12 @@
         <activity
             android:name=".register">
         </activity>
+        <activity
+            android:name=".match">
+        </activity>
+        <activity
+            android:name=".select_pic" android:theme="@style/DialogStyleBottom">
+        </activity>
     </application>
 
 </manifest>

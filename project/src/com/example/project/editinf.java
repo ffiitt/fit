@@ -62,6 +62,8 @@ public class editinf extends Activity {
 		setContentView(R.layout.editinf);
 		final Button back = (Button)findViewById(R.id.back);
 		back.setOnClickListener(new listen_back());
+		final Button select_p = (Button)findViewById(R.id.selectpng);
+		select_p.setOnClickListener(new listen_select_p());
 		Intent intent = getIntent();
 		Bundle data = intent.getExtras();
         user = data.getString("user");
@@ -76,6 +78,16 @@ public class editinf extends Activity {
 			data.putString("name", name);
 			intent.putExtras(data);
 			startActivity(intent);
+			finish();
+    	}
+	}
+	class listen_select_p implements OnClickListener{
+		@Override
+    	public void onClick(View v){
+    		Bundle data = new Bundle();
+    		Intent intent = new Intent(editinf.this,select_pic.class);//test∆‰ µ «login
+			startActivity(intent);
+			finish();
     	}
 	}
 	
