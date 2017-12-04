@@ -58,6 +58,9 @@
         <activity
             android:name=".select_pic" android:theme="@style/DialogStyleBottom">
         </activity>
+        <activity
+            android:name=".matchifo">
+        </activity>
     </application>
 
 </manifest>
