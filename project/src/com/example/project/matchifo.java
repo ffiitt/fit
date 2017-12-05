@@ -42,6 +42,7 @@ public class matchifo extends Activity{
 	private String matchhost = "";
 	private String matchtime = "";
 	private String joinway;
+	private String type;
     @Override 
     protected void onCreate(Bundle savedInstanceState){
     	super.onCreate(savedInstanceState);
@@ -57,6 +58,7 @@ public class matchifo extends Activity{
 	    Thread loginThread = new Thread(new thread());
 		loginThread.start();
 		handler1 = new Handler(){
+
 			@Override
 			public void handleMessage(Message msg){
 					Bundle bundle = msg.getData();
@@ -67,21 +69,36 @@ public class matchifo extends Activity{
 				    matchhost = bundle.getString("matchhost");
 				    matchtime = bundle.getString("matchtime");
 				    joinway = bundle.getString("joinway");
+				    type = bundle.getString("type");
 				    draw_text();
 			}
 		};
     }
     public void draw_text(){
+    	final View B = (View)findViewById(R.id.matchpic);
+    	if(type.equals("篮球")){
+			B.setBackgroundResource(R.drawable.matchba);
+		}
+		else if(type.equals("足球")){
+			B.setBackgroundResource(R.drawable.matchfo);
+		}
+		else if(type.equals("网球")){
+			B.setBackgroundResource(R.drawable.matchten);
+		}
+		else if(type.equals("田径")){
+			B.setBackgroundResource(R.drawable.matchrun);
+		}
+		else if(type.equals("羽毛球")){
+			B.setBackgroundResource(R.drawable.matchbad);
+		}
     	final TextView A = (TextView)findViewById(R.id.matchhost);
     	A.setText("主办方:  "+matchhost);
-    	final TextView B = (TextView)findViewById(R.id.matchname);
-    	B.setText(matchname);
     	final TextView C = (TextView)findViewById(R.id.matchjoin_endtime);
     	C.setText("报名截止时间:  "+matchjoin_endtime);
     	final TextView D = (TextView)findViewById(R.id.matchtime);
     	D.setText("比赛时间:  "+matchtime);
     	final TextView E = (TextView)findViewById(R.id.matchifo);
-    	E.setText(matchifo);
+    	E.setText("详细信息: "+matchifo);
     	final TextView F = (TextView)findViewById(R.id.matchposi);
     	F.setText("比赛地点:  "+matchposi);
     	final TextView G = (TextView)findViewById(R.id.joinway);
@@ -134,6 +151,7 @@ public class matchifo extends Activity{
 		    matchhost = json.getString("matchhost");
 		    matchtime = json.getString("matchtime");
 		    joinway = json.getString("joinway");
+		    type = json.getString("type");
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -150,6 +168,7 @@ public class matchifo extends Activity{
             bundle.putString("matchhost", matchhost);
             bundle.putString("matchtime", matchtime);
             bundle.putString("joinway", joinway);
+            bundle.putString("type", type);
 			message.setData(bundle);
 			handler1.sendMessage(message);
 		}

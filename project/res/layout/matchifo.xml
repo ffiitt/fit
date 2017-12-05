@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
-    android:background="#FFFAFA">
+    android:background="#F8F8FF">
     
     <RelativeLayout 
        android:layout_width="fill_parent"
@@ -47,29 +47,18 @@
        android:layout_height="35dp"
        android:src="@drawable/user"/>
    </RelativeLayout> 
+   <View 
+       android:id = "@+id/matchpic"
+       android:layout_height="200dp"
+       android:layout_width = "400dp"
+       android:layout_marginTop="40dp"
+       android:layout_marginLeft="0dp"/>
+
    
-   <TextView
-       android:layout_width = "300dp"
-       android:layout_height = "32dp"
-       android:layout_marginLeft="100dp"
-       android:layout_marginTop="50dp"
-       android:id = "@+id/matchname"
-       android:textSize="30dp"
-       android:text = "dawdawda">
-   </TextView>
-   <TextView
-       android:layout_width="300dp"
-       android:layout_height = "170dp"
-       android:layout_marginLeft="10dp"
-       android:layout_marginTop="160dp"
-       android:id="@+id/matchifo"
-       android:text="13333333333333333333333333333333333333333333333333333333333333231313131"
-       android:textSize="25dp">
-   </TextView>
    
    <TextView
        android:layout_marginLeft = "30dp"
-       android:layout_marginTop = "310dp"
+       android:layout_marginTop = "260dp"
        android:layout_width = "300dp"
        android:layout_height = "40dp"
        android:id = "@+id/matchtime"
@@ -79,17 +68,18 @@
    
    <TextView
        android:layout_marginLeft = "30dp"
-       android:layout_marginTop = "350dp"
+       android:layout_marginTop = "300dp"
        android:layout_width = "300dp"
        android:layout_height = "40dp"
        android:id = "@+id/matchposi"
        android:textSize = "20dp"
        android:text = "dwawafwfaw">
    </TextView>
-   
+
+       
    <TextView
        android:layout_marginLeft = "30dp"
-       android:layout_marginTop = "390dp"
+       android:layout_marginTop = "340dp"
        android:layout_width = "300dp"
        android:layout_height = "40dp"
        android:id = "@+id/matchhost"
@@ -99,7 +89,7 @@
    
    <TextView
        android:layout_marginLeft = "30dp"
-       android:layout_marginTop = "430dp"
+       android:layout_marginTop = "380dp"
        android:layout_width = "300dp"
        android:layout_height = "40dp"
        android:id = "@+id/matchjoin_endtime"
@@ -109,7 +99,7 @@
    
    <TextView
        android:layout_marginLeft = "30dp"
-       android:layout_marginTop = "470dp"
+       android:layout_marginTop = "420dp"
        android:layout_width = "300dp"
        android:layout_height = "40dp"
        android:id = "@+id/joinway"
@@ -117,8 +107,13 @@
        android:text = "dwawafwfaw">
    </TextView>
    
-
-   
-   
-
+   <TextView
+       android:layout_marginLeft = "30dp"
+       android:layout_marginTop = "460dp"
+       android:layout_width = "300dp"
+       android:layout_height = "100dp"
+       android:id = "@+id/matchifo"
+       android:textSize = "20dp"
+       android:text = "dwawafwfaw">
+   </TextView>
 </RelativeLayout>
