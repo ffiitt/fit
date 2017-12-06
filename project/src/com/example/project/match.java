@@ -44,6 +44,8 @@ public class match extends Activity{
     private ArrayList<String> matchID_ed = new ArrayList<String>();
     private ArrayList<String> matchname_ing = new ArrayList<String>();
     private ArrayList<String> matchname_ed = new ArrayList<String>();
+    private ArrayList<String> matchtype_ing = new ArrayList<String>();
+    private ArrayList<String> matchtype_ed = new ArrayList<String>();
 	Handler handler1;
     @Override 
     protected void onCreate(Bundle savedInstanceState){
@@ -72,6 +74,10 @@ public class match extends Activity{
 					matchname_ed = bundle.getStringArrayList("matchname_ed");
 					matchID_ing = bundle.getStringArrayList("matchID_ing");
 					matchID_ed = bundle.getStringArrayList("matchID_ed");
+					matchtype_ing = bundle.getStringArrayList("matchtype_ing");
+					matchtype_ed = bundle.getStringArrayList("matchtype_ed");
+//					Thread drawThread = new Thread(new thread_draw());
+//					drawThread.start(); 
 					draw_match(is_end);
 			}
 		};
@@ -129,13 +135,55 @@ public class match extends Activity{
     	for(int i = 0 ; i < listlength; i++ ){
     		View vv = new View(this);
 			android.widget.RelativeLayout.LayoutParams param0 = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-			param0.height = 300;
+			param0.height = 340;
 		    param0.width = 1200;
 			param0.leftMargin = 1;
-			param0.topMargin = 1 + 310*i;
-			vv.setBackgroundResource(R.drawable.blue);
+			param0.topMargin = 1 + 350*i;
+			if(!is_end){
+				if(matchtype_ing.get(i).equals("ÀºÇò")){
+					vv.setBackgroundResource(R.drawable.matchba);
+				}
+				else if(matchtype_ing.get(i).equals("×ãÇò")){
+					vv.setBackgroundResource(R.drawable.matchfo);
+				}
+				else if(matchtype_ing.get(i).equals("ÍøÇò")){
+					vv.setBackgroundResource(R.drawable.matchten);
+				}
+				else if(matchtype_ing.get(i).equals("Ìï¾¶")){
+					vv.setBackgroundResource(R.drawable.matchrun);
+				}
+				else if(matchtype_ing.get(i).equals("ÓðÃ«Çò")){
+					vv.setBackgroundResource(R.drawable.matchbad);
+				}
+			}
+			else{
+				if(matchtype_ed.get(i).equals("ÀºÇò")){
+					vv.setBackgroundResource(R.drawable.matchba);
+				}
+				else if(matchtype_ed.get(i).equals("×ãÇò")){
+					vv.setBackgroundResource(R.drawable.matchfo);
+				}
+				else if(matchtype_ed.get(i).equals("ÍøÇò")){
+					vv.setBackgroundResource(R.drawable.matchten);
+				}
+				else if(matchtype_ed.get(i).equals("Ìï¾¶")){
+					vv.setBackgroundResource(R.drawable.matchrun);
+				}
+				else if(matchtype_ed.get(i).equals("ÓðÃ«Çò")){
+					vv.setBackgroundResource(R.drawable.matchbad);
+				}
+			}
 			r.addView(vv,param0);
 			final TextView text = new TextView(this);
+			text.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					System.out.println("11111112414141");
+					text.setText("14141");
+				}
+			});
 			android.widget.RelativeLayout.LayoutParams param1 = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
 			if(!is_end){
 				text.setText(matchname_ing.get(i));
@@ -147,7 +195,7 @@ public class match extends Activity{
 			text.setTextSize(13);
 			param1.height = 60;
 			param1.width = 500;
-			param1.topMargin = 80 + 310*i;
+			param1.topMargin = 80 + 350*i;
 			param1.leftMargin = 120;
 			r.addView(text,param1);
 		    final Button bu = new Button(this);
@@ -160,7 +208,7 @@ public class match extends Activity{
 			param4.height = 90;
 			param4.width = 230;
 			param4.leftMargin = 730;
-			param4.topMargin = 210 + 310*i;		
+			param4.topMargin = 210 + 350*i;		
 			r.addView(bu,param4);
 			bu.setOnClickListener(new OnClickListener() {
 				
@@ -169,7 +217,7 @@ public class match extends Activity{
 					// TODO Auto-generated method stub
 					System.out.println(bu.getBottom());
 					int position = bu.getBottom();
-					int index = (position - 300) / 310;
+					int index = (position - 300) / 350;
 					Intent intent = new Intent(match.this,matchifo.class);
 					Bundle data = new Bundle();
     				data.putString("user", user);
@@ -233,6 +281,8 @@ public class match extends Activity{
 			JSONArray temp_ed = json.getJSONArray("matchname_ed");
 			JSONArray tempid_ing = json.getJSONArray("matchid_ing");
 			JSONArray tempid_ed = json.getJSONArray("matchid_ed");
+			JSONArray temptype_ing = json.getJSONArray("matchtype_ing");
+			JSONArray temptype_ed = json.getJSONArray("matchtype_ed");
 			for(int i = 0 ; i < temp_ing.length() ; i++){
 				matchname_ing.add(temp_ing.getString(i));
 			}
@@ -247,6 +297,13 @@ public class match extends Activity{
 				matchID_ed.add(tempid_ed.getString(i));
 				System.out.println(tempid_ed.getString(i));
 			}
+			for(int i = 0 ; i < temptype_ing.length(); i++){
+				matchtype_ing.add(temptype_ing.getString(i));
+			}
+			for(int i = 0 ; i < temptype_ed.length(); i++){
+				matchtype_ed.add(temptype_ed.getString(i));
+			}
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -260,10 +317,29 @@ public class match extends Activity{
 			bundle.putStringArrayList("matchID_ed", matchID_ed);
 			bundle.putStringArrayList("matchname_ing", matchname_ing);
 			bundle.putStringArrayList("matchname_ed", matchname_ed);
+			bundle.putStringArrayList("matchtype_ing",matchtype_ing);
+			bundle.putStringArrayList("matchtype_ed",matchtype_ed);
 			message.setData(bundle);
 			handler1.sendMessage(message);
 		}
 	}
+//	class thread_draw extends Thread{
+//		public void run(){
+//            runOnUiThread(new Runnable() {
+//				
+//				@Override
+//				public void run() {
+//					// TODO Auto-generated method stub
+//					try{
+//						Thread.sleep(500);
+//					}catch(Exception e){
+//						e.printStackTrace();
+//					}
+//					draw_match(is_end);
+//				}
+//			});
+//		}
+//	}
 
 
 }

@@ -49,6 +49,7 @@ import android.view.View.OnTouchListener;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -71,12 +72,14 @@ public class stadium extends Activity implements ViewFactory,OnTouchListener{
 		Bundle data = intent.getExtras();
 		name = data.getString("name");
 		user = data.getString("user");
-        final Button editinf = (Button)findViewById(R.id.editinf);
+        final ImageButton editinf = (ImageButton)findViewById(R.id.editinf);
+        
         editinf.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				//Intent intent = new Intent(stadium.this,editinf.class);
 				Intent intent = new Intent(stadium.this,editinf.class);
 				Bundle data = new Bundle();
 				data.putString("user",user);
@@ -86,6 +89,24 @@ public class stadium extends Activity implements ViewFactory,OnTouchListener{
 				finish();
 			}
 		});
+        final Button deviceb = (Button)findViewById(R.id.watchdevice);
+        
+        deviceb.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				//Intent intent = new Intent(stadium.this,editinf.class);
+				Intent intent = new Intent(stadium.this,infodevice.class);
+				Bundle data = new Bundle();
+				data.putString("user",user);
+				data.putString("name", name);
+				intent.putExtras(data);
+				startActivity(intent);
+				finish();
+			}
+		});
+        
 //        final Button importnews = (Button)findViewById(R.id.importnews);
 //        importnews.setOnClickListener(new OnClickListener() {
 //			
