@@ -35,6 +35,15 @@
        android:textColor="#ffffffff"
        android:background="@android:color/transparent"
        />  
+       <ImageButton
+       android:id="@+id/editinf"
+       android:layout_width="30dp"
+       android:paddingTop="1dp"
+       android:layout_alignParentRight="true"
+       android:layout_marginRight="10dp"
+       android:background="@android:color/transparent"
+       android:layout_height="35dp"
+       android:src="@drawable/edit"/>
     </RelativeLayout>
 
     <LinearLayout
@@ -175,11 +184,11 @@
         </TableLayout>
     </LinearLayout>
 	<Button
-        android:id="@+id/editinf"
+        android:id="@+id/watchdevice"
         android:layout_width="185dp"
         android:layout_height="50dp"
          android:layout_marginTop="480dp"
-        android:text="修改场馆信息" 
+        android:text="场馆设备" 
         android:textColor="#ffffff"
         android:background="@drawable/shapecir"/>
 

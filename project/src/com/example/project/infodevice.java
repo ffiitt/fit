@@ -1,3 +1,4 @@
+
 package com.example.project;
 
 import java.io.BufferedReader;
@@ -457,3 +458,4 @@ public class infodevice extends Activity{
 
 
 }
+

@@ -89,6 +89,17 @@ public class test extends Activity{
 				finish();
 			}
 		});
+		final Button login_bu = (Button)findViewById(R.id.zhuche);
+		login_bu.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+	    		Intent intent = new Intent(test.this,register.class);//test∆‰ µ «login
+				startActivity(intent);
+				finish();
+			}
+		});
 		handler1 = new Handler(){
 			@Override
 			public void handleMessage(Message msg){
