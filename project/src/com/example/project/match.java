@@ -175,6 +175,15 @@ public class match extends Activity{
 			}
 			r.addView(vv,param0);
 			final TextView text = new TextView(this);
+			text.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					System.out.println("11111112414141");
+					text.setText("14141");
+				}
+			});
 			android.widget.RelativeLayout.LayoutParams param1 = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
 			if(!is_end){
 				text.setText(matchname_ing.get(i));

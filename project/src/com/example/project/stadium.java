@@ -72,12 +72,14 @@ public class stadium extends Activity implements ViewFactory,OnTouchListener{
 		name = data.getString("name");
 		user = data.getString("user");
         final Button editinf = (Button)findViewById(R.id.editinf);
+        
         editinf.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(stadium.this,editinf.class);
+				//Intent intent = new Intent(stadium.this,editinf.class);
+				Intent intent = new Intent(stadium.this,infodevice.class);
 				Bundle data = new Bundle();
 				data.putString("user",user);
 				data.putString("name", name);
@@ -86,6 +88,7 @@ public class stadium extends Activity implements ViewFactory,OnTouchListener{
 				finish();
 			}
 		});
+        
 //        final Button importnews = (Button)findViewById(R.id.importnews);
 //        importnews.setOnClickListener(new OnClickListener() {
 //			

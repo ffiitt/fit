@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFFAFA" >
-    <RelativeLayout 
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/max"
+    tools:context="com.example.project.MainActivity" 
+    android:background="#FFFAFA">
+    
+   <RelativeLayout 
        android:layout_width="fill_parent"
        android:layout_height="39dp"
        android:background="#ed4255">
@@ -36,6 +38,78 @@
        android:textColor="#ffffffff"
        android:background="@android:color/transparent"
        />  
+   <ImageButton
+       android:id="@+id/myhome"
+       android:layout_width="30dp"
+       android:paddingTop="1dp"
+       android:layout_alignParentRight="true"
+       android:layout_marginRight="10dp"
+       android:background="@android:color/transparent"
+       android:layout_height="35dp"
+       android:src="@drawable/user"/>
    </RelativeLayout> 
+   <Button 
+       android:id = "@+id/signing"
+       android:layout_width = "90dp"
+       android:layout_height= "40dp" 
+       android:layout_marginTop="40dp"
+       android:layout_marginLeft="40dp"
+       android:text = "signing"
+       android:textColor="#ed4255"
+       android:background="#FFFAFA"/>
+   <Button 
+       android:id = "@+id/signed"
+       android:layout_width = "90dp"
+       android:layout_height= "40dp" 
+       android:layout_marginTop="40dp"
+       android:layout_marginLeft="210dp"
+       android:text = "signed"
+       android:textColor="#ed4255"
+       android:background="#FFFAFA"/>
+   <View
+       android:layout_height="3dip"
+       android:background="#FF9090"
+       android:layout_width="140dp"
+       android:layout_marginTop="80dp"
+       android:layout_marginLeft="20dp"
+       android:id="@+id/left" />
+    <View
+       android:layout_height="3dip"
+       android:background="#FF9090"
+       android:layout_width="140dp"
+       android:layout_marginTop="80dp"
+       android:layout_marginLeft="200dp"
+       android:id="@+id/right" />
+
+   <ScrollView
+       android:id="@+id/myscollview"
+       android:layout_width="350dp"
+       android:layout_height="400dp"
+       android:layout_marginTop="90dp"
+       android:scrollbars="none" >
+     <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="300dp"
+        android:id="@+id/rr">     
+      </RelativeLayout>
+    </ScrollView>
+    <Button
+         android:id="@+id/insert_agenga"
+         android:layout_width="fill_parent"
+         android:layout_height="40dp"
+         android:layout_marginTop="520dp"
+         android:text="增加设施"
+         android:textColor="#ed4255"
+         android:paddingLeft="10dp"
+         android:drawableLeft="@drawable/jahao"
+         android:drawablePadding="20dp"
+         android:gravity="center_vertical"
+         android:background="@drawable/shape"/>
+     
+
+
+    
+    
+  
 
 </RelativeLayout>

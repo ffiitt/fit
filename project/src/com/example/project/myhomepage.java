@@ -67,6 +67,10 @@ public class myhomepage extends Activity{
 	private int row = 1;
 	private String name="";
 	Handler handler1;
+	private String year = "";
+	private String day = "";
+	private String month = "";
+	private String today_do = "";
 	private String user = "";
 	private String temp_time="";
 	private String temp_agena="";
@@ -80,6 +84,20 @@ public class myhomepage extends Activity{
 		Intent intent = getIntent();
 		Bundle data = intent.getExtras();
 		name = data.getString("name");
+		 Calendar now = Calendar.getInstance();
+    	 year ="" + now.get(Calendar.YEAR);
+    	 if(now.get(Calendar.MONTH)+1 < 10){
+    		 month = "0" + (now.get(Calendar.MONTH)+1);
+    	 }
+    	 else{
+    		 month = "" + (now.get(Calendar.MONTH)+1);
+    	 }
+    	 if(now.get(Calendar.DAY_OF_MONTH) < 10){
+    		 day = "0" + (now.get(Calendar.DAY_OF_MONTH));
+    	 }
+    	 else{
+    		 day = "" + (now.get(Calendar.DAY_OF_MONTH));
+    	 }
 		TextView ttext = (TextView)findViewById(R.id.ttext);
 		ttext.setText("Hello,"+name);
 		
@@ -123,6 +141,12 @@ public class myhomepage extends Activity{
 					Bundle bundle = msg.getData();
 					time = bundle.getStringArrayList("time");
 					agena = bundle.getStringArrayList("agena");
+					for(int i = 0 ; i < time.size(); i++ ){
+						if(time.get(i).equals(year+"-"+month+"-"+day)){
+							today_do = agena.get(i);
+							do_today();
+						}
+					}
                     draw_agenga();
 			}
 		};
@@ -196,6 +220,8 @@ public class myhomepage extends Activity{
 			tt.setText(time.get(i));
 			tt.setTextSize(10);
 			r.addView(tt,param2);
+			System.out.println(time);
+			System.out.println(year+"-"+month+"-"+day);
 			TextView t = new TextView(this);
 			android.widget.RelativeLayout.LayoutParams param1 = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
 			param1.setMargins(150, 5+i*130, 10, 1200);
@@ -254,6 +280,19 @@ public class myhomepage extends Activity{
 			System.out.println("wafafwa");
 			showdialog();
 		}
+	}
+	private void do_today(){
+		final AlertDialog.Builder normalDialog = new AlertDialog.Builder(myhomepage.this);
+		normalDialog.setTitle("今天要做的事情");
+		normalDialog.setMessage(today_do);
+		normalDialog.setPositiveButton("确定", 
+	            new DialogInterface.OnClickListener() {
+	            @Override
+	            	public void onClick(DialogInterface dialog, int which) {
+	                	//...To-do
+	            }
+	    });
+		normalDialog.show();
 	}
 	private void showdialog(){
 //		final EditText edittext = new EditText(myhomepage.this);
