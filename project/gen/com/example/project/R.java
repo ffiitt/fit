@@ -11,8 +11,10 @@ public final class R {
     public static final class anim {
         public static final int left_in=0x7f040000;
         public static final int left_out=0x7f040001;
-        public static final int right_in=0x7f040002;
-        public static final int right_out=0x7f040003;
+        public static final int push_bottom_out=0x7f040002;
+        public static final int push_buttom_in=0x7f040003;
+        public static final int right_in=0x7f040004;
+        public static final int right_out=0x7f040005;
     }
     public static final class attr {
     }
@@ -71,73 +73,74 @@ public final class R {
     }
     public static final class id {
         public static final int Content_Layout=0x7f0a0018;
-        public static final int Friday=0x7f0a002e;
+        public static final int Friday=0x7f0a002f;
         public static final int Layout_bottom=0x7f0a0016;
         public static final int Layout_top=0x7f0a0015;
-        public static final int Monday=0x7f0a002a;
-        public static final int Saturday=0x7f0a002f;
-        public static final int Sunday=0x7f0a0030;
-        public static final int Thursday=0x7f0a002d;
-        public static final int Tuesday=0x7f0a002b;
-        public static final int Wednesday=0x7f0a002c;
-        public static final int action_settings=0x7f0a0043;
+        public static final int Monday=0x7f0a002b;
+        public static final int Saturday=0x7f0a0030;
+        public static final int Sunday=0x7f0a0031;
+        public static final int Thursday=0x7f0a002e;
+        public static final int Tuesday=0x7f0a002c;
+        public static final int Wednesday=0x7f0a002d;
+        public static final int action_settings=0x7f0a0044;
         public static final int adress=0x7f0a000f;
-        public static final int autoComplete=0x7f0a0037;
+        public static final int autoComplete=0x7f0a0038;
         public static final int back=0x7f0a0001;
         public static final int badminton=0x7f0a0007;
         public static final int basketball=0x7f0a0006;
-        public static final int btn_cancel=0x7f0a0042;
-        public static final int btn_pick_photo=0x7f0a0041;
-        public static final int btn_take_photo=0x7f0a0040;
+        public static final int btn_cancel=0x7f0a0043;
+        public static final int btn_pick_photo=0x7f0a0042;
+        public static final int btn_take_photo=0x7f0a0041;
         public static final int container=0x7f0a0014;
-        public static final int dialog_layout=0x7f0a003f;
+        public static final int dialog_layout=0x7f0a0040;
         public static final int editinf=0x7f0a0012;
         public static final int edok=0x7f0a0017;
         public static final int fit=0x7f0a0009;
-        public static final int homepage_my=0x7f0a0031;
+        public static final int homepage_my=0x7f0a0032;
         public static final int imageSwitcher1=0x7f0a0003;
         public static final int imageSwitcherinfo=0x7f0a000b;
         public static final int imageViewedit=0x7f0a0019;
         public static final int importnews=0x7f0a0013;
-        public static final int insert_agenga=0x7f0a0036;
-        public static final int left=0x7f0a0025;
-        public static final int login=0x7f0a0020;
+        public static final int insert_agenga=0x7f0a0037;
+        public static final int left=0x7f0a0026;
+        public static final int login=0x7f0a0021;
         public static final int loginpng=0x7f0a001b;
         public static final int match=0x7f0a0004;
-        public static final int max=0x7f0a0022;
-        public static final int my_my=0x7f0a0032;
+        public static final int max=0x7f0a0023;
+        public static final int my_my=0x7f0a0033;
         public static final int myhome=0x7f0a0002;
-        public static final int myscollview=0x7f0a0027;
+        public static final int myscollview=0x7f0a0028;
         public static final int name=0x7f0a000c;
-        public static final int nicheng=0x7f0a003a;
+        public static final int nicheng=0x7f0a003b;
         public static final int other=0x7f0a0011;
         public static final int outdoor=0x7f0a000a;
-        public static final int password=0x7f0a001f;
+        public static final int password=0x7f0a0020;
         public static final int price=0x7f0a000e;
-        public static final int radioGroup1=0x7f0a003b;
-        public static final int radiobutton1=0x7f0a003d;
-        public static final int radiobutton2=0x7f0a003c;
-        public static final int real=0x7f0a0033;
-        public static final int right=0x7f0a0026;
-        public static final int rr=0x7f0a0028;
-        public static final int search=0x7f0a0038;
+        public static final int radioGroup1=0x7f0a003c;
+        public static final int radiobutton1=0x7f0a003e;
+        public static final int radiobutton2=0x7f0a003d;
+        public static final int real=0x7f0a0034;
+        public static final int right=0x7f0a0027;
+        public static final int rr=0x7f0a0029;
+        public static final int search=0x7f0a0039;
         public static final int selectpng=0x7f0a001a;
-        public static final int signed=0x7f0a0024;
-        public static final int signing=0x7f0a0023;
+        public static final int signed=0x7f0a0025;
+        public static final int signing=0x7f0a0024;
         public static final int swim=0x7f0a0005;
         public static final int tele=0x7f0a0010;
         public static final int tennis=0x7f0a0008;
-        public static final int textView1=0x7f0a0029;
+        public static final int textView1=0x7f0a002a;
         public static final int text_title=0x7f0a0000;
         public static final int time=0x7f0a000d;
-        public static final int ttext=0x7f0a0034;
-        public static final int user_ph=0x7f0a0035;
-        public static final int username=0x7f0a001e;
-        public static final int view=0x7f0a001d;
-        public static final int wel=0x7f0a0039;
-        public static final int yuding=0x7f0a001c;
-        public static final int zhuce=0x7f0a003e;
-        public static final int zhuche=0x7f0a0021;
+        public static final int ttext=0x7f0a0035;
+        public static final int uploadImageResult=0x7f0a001c;
+        public static final int user_ph=0x7f0a0036;
+        public static final int username=0x7f0a001f;
+        public static final int view=0x7f0a001e;
+        public static final int wel=0x7f0a003a;
+        public static final int yuding=0x7f0a001d;
+        public static final int zhuce=0x7f0a003f;
+        public static final int zhuche=0x7f0a0022;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -162,6 +165,7 @@ public final class R {
         public static final int hello_world=0x7f070001;
     }
     public static final class style {
+        public static final int AnimBottom=0x7f080001;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -187,6 +191,9 @@ public final class R {
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f080002;
+        /**  模糊 
+         */
+        public static final int DialogStyleBottom=0x7f080003;
     }
 }

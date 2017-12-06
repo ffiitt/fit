@@ -64,7 +64,7 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:gravity="center" >
-        
+        
 
         <Button
             android:id="@+id/edok"
@@ -86,7 +86,7 @@
         android:layout_above="@id/Layout_bottom"
         android:layout_below="@id/Layout_top"
         android:gravity="center" >
-       
+       
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -128,7 +128,12 @@
 	        android:background="#fa8072"
 	        android:text="上传图片"
 	        android:textColor="#ffffff"/>
- 			
+            
+ 			<TextView
+	        android:id="@+id/uploadImageResult"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="" />
              <TableLayout
             android:layout_width="fill_parent"
             android:layout_height="250dp"
