@@ -172,6 +172,7 @@ public final class R {
         public static final int outdoor=0x7f03000a;
         public static final int register=0x7f03000b;
         public static final int select_pic=0x7f03000c;
+        public static final int userdevice=0x7f03000d;
     }
     public static final class menu {
         public static final int main=0x7f090000;

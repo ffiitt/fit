@@ -83,9 +83,7 @@ public class infodevice extends Activity{
 					n_devicesum = bundle.getStringArrayList("n_devicesum");
 					nn_devicesum = bundle.getStringArrayList("nn_devicesum");
 					n_devicename = bundle.getStringArrayList("n_devicename");
-					nn_devicename = bundle.getStringArrayList("nn_devicename");
-//					Thread drawThread = new Thread(new thread_draw());
-//					drawThread.start(); 
+					nn_devicename = bundle.getStringArrayList("nn_devicename"); 
 					draw_device(is_end);
 			}
 		};
@@ -156,25 +154,26 @@ public class infodevice extends Activity{
                  
     		vv.setBackgroundResource(R.drawable.shape);
     		r.addView(vv,param0);
-			//
     		View v = new View(this);
     		android.widget.RelativeLayout.LayoutParams param = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-		//param.setMargins(25, 330+i*130, 980, 1280-i*130);
     		param.height = 80;
     		param.width = 60;
     		param.leftMargin = 20;
-    		param.topMargin = 20 + 140*i;
-    		
+    		param.topMargin = 20 + 140*i;  		
     		v.setBackgroundResource(R.drawable.hot);
     		r.addView(v,param);
     		TextView tt = new TextView(this);
     		android.widget.RelativeLayout.LayoutParams param2 = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-		//param2.setMargins(150, 390+i*130, 10, 1200);
     		param2.height = 80;
     		param2.width = 1000;
     		param2.leftMargin = 200;
     		param2.topMargin = 30 + 140*i;
-    		tt.setText(n_devicename.get(i));
+    		if(!is_end){
+    			tt.setText(n_devicename.get(i));
+    		}
+    		else{
+    			tt.setText(nn_devicename.get(i));
+    		}
     		tt.setTextSize(20);
     		r.addView(tt,param2);
     		TextView t = new TextView(this);
@@ -183,8 +182,12 @@ public class infodevice extends Activity{
     		param1.width = 100;
     		param1.leftMargin = 700;
     		param1.topMargin = 40 + 140*i;
-    		
-    		t.setText(n_devicesum.get(i));
+    		if(!is_end){
+    			t.setText(n_devicesum.get(i));
+    		}
+    		else{
+    			t.setText(nn_devicesum.get(i));
+    		}
     		t.setTextSize(15);
     		r.addView(t,param1);
     		View vi = new View(this);
@@ -192,7 +195,6 @@ public class infodevice extends Activity{
     		param3.setMargins(0,123+i*130,0,1073-i*130);
     		vi.setBackground(new ColorDrawable(Color.RED));
     		r.addView(vi,param3);	
-		//新加的
     		final ImageButton bu = new ImageButton(this);
     		android.widget.RelativeLayout.LayoutParams param4 = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
     		param4.height = 80;
@@ -206,13 +208,22 @@ public class infodevice extends Activity{
     			@Override
     			public void onClick(View v) {
 				// TODO Auto-generated method stub
-    				int j = (bu.getBottom() - 100)/ 130;
-    				System.out.println(bu.getBottom());
-				//System.out.println(agena.get(j));
-
-//    				Thread loginThread = new Thread(new deletethread());
-//    				loginThread.start(); 
-				
+    				int j = (bu.getBottom() - 100) / 140;
+    				Bundle data = new Bundle();
+    	    		Intent intent = new Intent(infodevice.this,userdevice.class);//test其实是login
+    				data.putString("user",user);
+    				data.putString("name", name);
+    				if(!is_end){
+    				   data.putString("devicename",n_devicename.get(j));
+    				   data.putString("time",today );
+    				}
+    				else{
+    					data.putString("devicename", nn_devicename.get(j));
+    					data.putString("time", nday);
+    				}
+    				intent.putExtras(data);
+    				startActivity(intent);
+    				finish();
     			}
     		});
     	}
@@ -314,7 +325,12 @@ public class infodevice extends Activity{
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
-				n_devicesum.add(edit.getText().toString());
+				if(!is_end){
+					n_devicesum.add(edit.getText().toString());
+				}
+				else{
+					nn_devicesum.add(edit.getText().toString());
+				}
 				sum = edit.getText().toString();
 				//showdialog_sum();
 				draw_device(is_end);
@@ -333,7 +349,12 @@ public class infodevice extends Activity{
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
-				n_devicename.add(edit.getText().toString());
+				if(!is_end){
+					n_devicename.add(edit.getText().toString());
+				}
+				else{
+					nn_devicename.add(edit.getText().toString());
+				}
 				device = edit.getText().toString();
 				showdialog_sum();
 //				Thread loginThread1 = new Thread(new insertthread());
