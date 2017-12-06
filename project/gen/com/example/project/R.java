@@ -84,10 +84,11 @@ public final class R {
         public static final int Thursday=0x7f0a0035;
         public static final int Tuesday=0x7f0a0033;
         public static final int Wednesday=0x7f0a0034;
-        public static final int action_settings=0x7f0a0046;
+        public static final int action_settings=0x7f0a0047;
+        public static final int add_device=0x7f0a0023;
         public static final int addpng=0x7f0a001a;
         public static final int adress=0x7f0a000f;
-        public static final int autoComplete=0x7f0a003e;
+        public static final int autoComplete=0x7f0a003f;
         public static final int back=0x7f0a0001;
         public static final int badminton=0x7f0a0007;
         public static final int basketball=0x7f0a0006;
@@ -100,7 +101,7 @@ public final class R {
         public static final int imageSwitcherinfo=0x7f0a000b;
         public static final int imageViewedit=0x7f0a0019;
         public static final int importnews=0x7f0a0013;
-        public static final int insert_agenga=0x7f0a0023;
+        public static final int insert_agenga=0x7f0a003e;
         public static final int joinway=0x7f0a002f;
         public static final int left=0x7f0a001f;
         public static final int login=0x7f0a0028;
@@ -117,18 +118,18 @@ public final class R {
         public static final int myhome=0x7f0a0002;
         public static final int myscollview=0x7f0a0021;
         public static final int name=0x7f0a000c;
-        public static final int nicheng=0x7f0a0041;
+        public static final int nicheng=0x7f0a0042;
         public static final int other=0x7f0a0011;
         public static final int outdoor=0x7f0a000a;
         public static final int password=0x7f0a0027;
         public static final int price=0x7f0a000e;
-        public static final int radioGroup1=0x7f0a0042;
-        public static final int radiobutton1=0x7f0a0044;
-        public static final int radiobutton2=0x7f0a0043;
+        public static final int radioGroup1=0x7f0a0043;
+        public static final int radiobutton1=0x7f0a0045;
+        public static final int radiobutton2=0x7f0a0044;
         public static final int real=0x7f0a003b;
         public static final int right=0x7f0a0020;
         public static final int rr=0x7f0a0022;
-        public static final int search=0x7f0a003f;
+        public static final int search=0x7f0a0040;
         public static final int signed=0x7f0a001e;
         public static final int signing=0x7f0a001d;
         public static final int swim=0x7f0a0005;
@@ -141,9 +142,9 @@ public final class R {
         public static final int user_ph=0x7f0a003d;
         public static final int username=0x7f0a0026;
         public static final int view=0x7f0a0025;
-        public static final int wel=0x7f0a0040;
+        public static final int wel=0x7f0a0041;
         public static final int yuding=0x7f0a0024;
-        public static final int zhuce=0x7f0a0045;
+        public static final int zhuce=0x7f0a0046;
         public static final int zhuche=0x7f0a0029;
     }
     public static final class layout {

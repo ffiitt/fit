@@ -49,7 +49,6 @@ public class MainActivity extends Activity implements ViewFactory,OnTouchListene
 		mImageSwitcher = (ImageSwitcher)findViewById(R.id.imageSwitcher1);
 		mImageSwitcher.setFactory(this);
 		mImageSwitcher.setOnTouchListener(this);
-		//currentPosition = getIntent().getIntExtra("positon",0);
 		mImageSwitcher.setImageResource(images[currentPosition]);
 		Intent intent = getIntent();
 		Bundle data = intent.getExtras();

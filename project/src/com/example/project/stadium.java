@@ -78,8 +78,7 @@ public class stadium extends Activity implements ViewFactory,OnTouchListener{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				//Intent intent = new Intent(stadium.this,editinf.class);
-				Intent intent = new Intent(stadium.this,infodevice.class);
+				Intent intent = new Intent(stadium.this,editinf.class);
 				Bundle data = new Bundle();
 				data.putString("user",user);
 				data.putString("name", name);
